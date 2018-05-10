@@ -47,8 +47,13 @@ export default class AutoExpandingTextInput extends PureComponent {
     this.props.onRef(undefined);
   }
 
-  clear() {
+  clear = () => {
     this.Input.clear();
+  }
+
+  focus = (text) => {
+    this.Input.setNativeProps({ text: `@${text} ` })
+    this.Input.focus()
   }
 
   _onContentSizeChange = (event) => {
